@@ -1,0 +1,165 @@
+/* =========================================================
+   Estilos do Plantão — MOBILE-FIRST
+   Regras-base valem para o celular; telas maiores só ajustam.
+   O modo escuro segue a configuração do aparelho.
+   ========================================================= */
+
+:root {
+  /* Modo claro */
+  --fundo: #f4f6f8;
+  --superficie: #ffffff;
+  --borda: #d6dce2;
+  --texto: #111827;
+  --texto-suave: #4b5563;
+  --destaque: #0b6bcb;
+  --erro: #b42318;
+  --ok: #067647;
+  --texto-botao: #ffffff;
+
+  --raio: 14px;
+  --toque: 48px; /* altura mínima de áreas de toque */
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #0f1419;
+    --superficie: #1a2129;
+    --borda: #2c3640;
+    --texto: #e8edf2;
+    --texto-suave: #9aa7b4;
+    --destaque: #5aa9f5;
+    --erro: #ff8a80;
+    --ok: #6ee7a8;
+    --texto-botao: #0f1419;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 17px; /* tamanho padrão do iOS */
+  line-height: 1.4;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.app {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Cabeçalho fixo com o peso ---------- */
+.topo {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--superficie);
+  border-bottom: 1px solid var(--borda);
+  /* respeita o "notch" do iPhone */
+  padding: calc(env(safe-area-inset-top) + 8px) calc(env(safe-area-inset-right) + 16px) 10px
+    calc(env(safe-area-inset-left) + 16px);
+}
+
+.topo__barra { min-height: 32px; display: flex; align-items: center; }
+.topo__marca { font-weight: 700; font-size: 1.1rem; color: var(--destaque); }
+.topo__voltar {
+  color: var(--destaque);
+  text-decoration: none;
+  font-size: 1.05rem;
+  padding: 6px 8px 6px 0;
+}
+
+.campo-peso { margin-top: 6px; }
+.campo-peso__rotulo { display: block; font-size: 0.8rem; color: var(--texto-suave); margin-bottom: 4px; }
+.campo-peso__linha { display: flex; align-items: center; gap: 8px; }
+.campo-peso input {
+  flex: 1;
+  min-width: 0;
+  height: var(--toque);
+  padding: 0 12px;
+  font-size: 1.25rem; /* >=16px evita zoom automático no iPhone */
+  font-weight: 600;
+  color: var(--texto);
+  background: var(--fundo);
+  border: 2px solid var(--borda);
+  border-radius: var(--raio);
+  outline: none;
+}
+.campo-peso input:focus { border-color: var(--destaque); }
+.campo-peso input.invalido { border-color: var(--erro); }
+.campo-peso__unidade { font-weight: 600; color: var(--texto-suave); }
+.campo-peso__limpar {
+  width: var(--toque);
+  height: var(--toque);
+  border: none;
+  border-radius: var(--raio);
+  background: var(--fundo);
+  color: var(--texto-suave);
+  font-size: 1.1rem;
+}
+.campo-peso__status { margin: 4px 0 0; font-size: 0.8rem; color: var(--texto-suave); min-height: 1.2em; }
+.campo-peso__status.erro { color: var(--erro); font-weight: 600; }
+
+/* ---------- Conteúdo ---------- */
+.conteudo {
+  flex: 1;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px calc(env(safe-area-inset-right) + 16px) 16px calc(env(safe-area-inset-left) + 16px);
+}
+
+.menu { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.menu__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 72px;
+  padding: 12px 16px;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  color: var(--texto);
+  text-decoration: none;
+}
+.menu__item:active { transform: scale(0.98); }
+.menu__icone { font-size: 1.8rem; width: 2.2rem; text-align: center; }
+.menu__texto { flex: 1; display: flex; flex-direction: column; }
+.menu__titulo { font-weight: 600; }
+.menu__descricao { font-size: 0.85rem; color: var(--texto-suave); }
+.menu__seta { font-size: 1.6rem; color: var(--texto-suave); }
+
+.pagina h1 { font-size: 1.5rem; margin: 4px 0 12px; }
+.pagina__aviso { color: var(--texto-suave); }
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--toque);
+  padding: 0 20px;
+  margin-top: 8px;
+  border-radius: var(--raio);
+  background: var(--destaque);
+  color: var(--texto-botao);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.rodape {
+  padding: 12px 16px calc(env(safe-area-inset-bottom) + 12px);
+  font-size: 0.75rem;
+  color: var(--texto-suave);
+  text-align: center;
+}
+
+/* Telas maiores (tablet/computador): duas colunas no menu */
+@media (min-width: 640px) {
+  .menu { grid-template-columns: 1fr 1fr; }
+}
