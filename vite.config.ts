@@ -3,9 +3,12 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
-// Endereço no GitHub Pages: https://drlucasoares.github.io/Plantaoapp/
-// Por isso todos os arquivos ficam sob "/Plantaoapp/".
-const BASE = '/Plantaoapp/';
+import { NOME_APP, DESCRICAO_APP } from './src/marca';
+import { calcularBase } from './src/lib/base';
+
+// Caminho base detectado automaticamente na publicação (ver src/lib/base.ts):
+// "/" em drlucasoares.github.io, "/Plantaoapp/" enquanto o repositório tiver esse nome.
+const BASE = calcularBase(process.env.BASE_PATH);
 
 export default defineConfig({
   base: BASE,
@@ -15,9 +18,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'apple-touch-icon.png'],
       manifest: {
-        name: 'Plantão — apoio ao PS, enfermaria e UTI',
-        short_name: 'Plantão',
-        description: 'Ferramentas de apoio ao plantão médico. Não substitui o julgamento clínico.',
+        name: `${NOME_APP} — ${DESCRICAO_APP}`,
+        short_name: NOME_APP,
+        description: `${DESCRICAO_APP}. Não substitui o julgamento clínico.`,
         lang: 'pt-BR',
         start_url: BASE,
         scope: BASE,

@@ -38,6 +38,9 @@ mutar "validador não checa fonte" src/data/validarDroga.ts "if (!textoPreenchid
 mutar "validador aceita data no futuro" src/data/validarDroga.ts "> hoje.getTime()" "> Infinity"
 mutar "validador aceita 30 de fevereiro" src/data/validarDroga.ts "return data.getUTCFullYear() === a" "return true || data.getUTCFullYear() === a"
 mutar "validador aceita dose mínima > máxima" src/data/validarDroga.ts "|| dose.minima > dose.maxima" ""
+mutar "caminho base sem barra final" src/lib/base.ts "\`/\${limpo}/\`" "\`/\${limpo}\`"
+mutar "caminho base ignora o valor da publicação" src/lib/base.ts "const limpo = (basePath ?? '')" "const limpo = ('')"
+mutar "nome do app trocado" src/marca.ts "'Beira-Leito'" "'Plantão'"
 echo; echo "RESULTADO: $pegos de $total defeitos detectados"
 rm -f "$LOG"
 [ "$pegos" -eq "$total" ] || exit 1

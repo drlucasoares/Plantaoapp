@@ -1,10 +1,10 @@
-# Plantão
+# Beira-Leito
 
 Ferramentas de apoio ao plantão médico (PS, enfermaria e UTI), instalável no iPhone como app (PWA).
 
 > Ferramenta de apoio. Não substitui o julgamento clínico.
 
-Endereço: https://drlucasoares.github.io/Plantaoapp/
+Endereço: https://drlucasoares.github.io/
 
 ## Instalar no iPhone
 Abra o endereço no **Safari** → botão Compartilhar → **Adicionar à Tela de Início**.

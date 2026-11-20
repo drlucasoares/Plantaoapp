@@ -1,4 +1,4 @@
-# Plantão — regras do projeto
+# Beira-Leito — regras do projeto
 
 Site/PWA de apoio ao plantão médico (PS, enfermaria, UTI), usado principalmente
 no iPhone. O responsável é médico e leigo em programação: **explique cada mudança
@@ -32,6 +32,9 @@ em linguagem simples, em português**, e mostre o plano antes de mudanças grand
 - Cálculos em funções puras em `src/lib/` (sem React), para serem testáveis.
 - Peso do paciente: use `usePeso().pesoKg` (é `null` se vazio/inválido — trate isso).
 - Rotas com `HashRouter` (`#/modulo`) por causa do GitHub Pages.
+- Nome do app em `src/marca.ts` (e no `<title>` de `index.html`).
+- Endereço: https://drlucasoares.github.io/ (repositório `drlucasoares.github.io`).
+  O caminho base é detectado na publicação (`src/lib/base.ts`); não fixe "/Plantaoapp/" no código.
 - Rodapé sempre lembra: ferramenta de apoio, não substitui o julgamento clínico.
 
 ## Antes de liberar qualquer código

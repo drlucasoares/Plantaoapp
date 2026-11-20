@@ -1,5 +1,6 @@
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { CampoPeso } from './CampoPeso';
+import { NOME_APP } from '../marca';
 
 export function Layout() {
   const { pathname } = useLocation();
@@ -10,7 +11,7 @@ export function Layout() {
       <header className="topo">
         <div className="topo__barra">
           {naInicial ? (
-            <span className="topo__marca">✚ Plantão</span>
+            <span className="topo__marca">✚ {NOME_APP}</span>
           ) : (
             <Link to="/" className="topo__voltar">
               ‹ Início
