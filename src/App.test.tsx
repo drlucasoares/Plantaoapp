@@ -22,6 +22,11 @@ beforeEach(() => {
 });
 
 describe('página inicial', () => {
+  it('mostra o nome do app', () => {
+    montar();
+    expect(screen.getByText(/Beira-Leito/)).toBeInTheDocument();
+  });
+
   it('mostra os 6 módulos na ordem combinada', () => {
     montar();
     const links = screen.getAllByRole('link');
