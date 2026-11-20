@@ -1,0 +1,27 @@
+{
+  "_aviso": "ARQUIVO DE EXEMPLO DE FORMATO. Dados FICTÍCIOS. Não usar clinicamente.",
+  "drogas": [
+    {
+      "id": "exemplo-droga",
+      "nome": "Droga Exemplo (FICTÍCIA)",
+      "classe": "exemplo",
+      "apresentacao": "Ampola 10 mg/mL, 5 mL",
+      "diluicao_padrao": {
+        "descricao": "2 ampolas (100 mg) + SF 0,9% 240 mL",
+        "concentracao": 0.4,
+        "unidade_concentracao": "mg/mL"
+      },
+      "dose": {
+        "minima": 0.1,
+        "maxima": 1,
+        "unidade": "mcg/kg/min"
+      },
+      "observacoes": "Campo livre para alertas (ex.: acesso central preferencial).",
+      "fonte": "Referência completa: autor, título, edição/ano, página ou link da diretriz.",
+      "revisao": {
+        "data": "2026-11-20",
+        "revisor": "Nome do médico revisor"
+      }
+    }
+  ]
+}
